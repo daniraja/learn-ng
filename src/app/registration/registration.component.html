@@ -1,0 +1,23 @@
+<p>registration works!</p>
+<h3>Registration</h3>
+<form [formGroup]="registration" (ngSubmit)="onSubmit()">
+    <label for="first-name">First Name: </label>
+    <input id="first-name" type="text" formControlName="firstName">
+  
+    <label for="last-name">Last Name: </label>
+    <input id="last-name" type="text" formControlName="lastName">
+  
+    <label for="email">Email: </label>
+    <input id="email" type="text" formControlName="email">
+  
+    <label for="phone">Phone: </label>
+    <input id="phone" type="text" formControlName="phone">
+  
+    <label for="password">First Name: </label>
+    <input id="password" type="text" formControlName="password">
+  
+    <label for="confirmPassword">Last Name: </label>
+    <input id="confirmPassword" type="text" formControlName="confirmPassword">  
+
+    <button type="submit" [disabled]="!profileForm.valid">Submit</button>
+</form>
