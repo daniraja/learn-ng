@@ -9,7 +9,7 @@
     - Email
     - Phone(US)
     - Password
-    - Confirm Password# learn-ng
+    - Confirm Password
     - Submit
 - Validations
     - Show validation error on each field
