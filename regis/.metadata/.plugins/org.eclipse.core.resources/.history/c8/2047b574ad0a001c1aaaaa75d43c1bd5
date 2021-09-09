@@ -1,0 +1,13 @@
+package com.example.register.repo;
+
+import java.util.List;
+
+import org.springframework.data.repository.CrudRepository;
+import com.example.register.Regparm;
+
+public interface regrepo extends CrudRepository<Regparm, Integer>
+
+{
+	List<Regparm>findByid(int id);
+	
+}
