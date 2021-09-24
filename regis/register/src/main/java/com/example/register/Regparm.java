@@ -1,14 +1,35 @@
 package com.example.register;
 
+import java.io.Serializable;
 
+import javax.persistence.Column;
+import javax.persistence.Entity;
+import javax.persistence.GeneratedValue;
+import javax.persistence.Id;
+import javax.persistence.Table;
+import javax.validation.constraints.NotNull;
 
-public class Regparm {
+@Entity
+@Table(name = "reg")
+public class Regparm implements Serializable{
 	
+	private static final long serialVersionUID = 1L;
+	
+	@Id
+	@GeneratedValue
+	@Column(name = "id", unique = true)
+	@NotNull
 	 private int id;
+	@Column(name = "firstname")
 	    private String firstname;
+	@Column(name = "lastname")
 	    private String lastname;
+	@Column(name = "email")
 	    private String email;
+	@Column(name = "phone")
 	    private int phone;
+	
+		
 		public int getId() {
 			return id;
 		}

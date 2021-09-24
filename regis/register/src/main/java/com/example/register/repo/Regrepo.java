@@ -1,19 +1,21 @@
 package com.example.register.repo;
 
+
 import java.util.List;
 
 import org.springframework.context.annotation.ComponentScan;
 import org.springframework.context.annotation.Configuration;
-import org.springframework.data.repository.CrudRepository;
+import org.springframework.data.jpa.repository.JpaRepository;
+import org.springframework.data.jpa.repository.Query;
 
 import com.example.register.Regparm;
 
 
 @Configuration
 @ComponentScan
-public interface Regrepo extends CrudRepository<Regparm, Integer>
+public interface Regrepo extends JpaRepository<Regparm, Integer>
 
 {
-	List<Regparm>findByid(int id);
-	
+	@Query("SELECT " + " id, firstname, lastname, email, phone" +" FROM Regparm " )
+	List<Object[]> getRepo();
 }
