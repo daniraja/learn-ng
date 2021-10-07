@@ -7,20 +7,45 @@ import { FormGroup, FormControl, Validators, FormArray, ValidatorFn } from '@ang
   styleUrls: ['./exp.component.scss']
 })
 export class ExpComponent {
-  
-  exp = new FormGroup({
-    firstName: new FormControl('', [Validators.required, Validators.maxLength(100), Validators.minLength(2), Validators.pattern(`^(?=.{2,100}$)[a-zA-Z]+(?:['_.\\s][a-zA-Z]+)*$`)]),
-    lastName: new FormControl('', [Validators.pattern(`^[a-zA-Z]+$`), Validators.maxLength(100)]),
-    email: new FormControl('', Validators.required),
-    phone: new FormControl('', [Validators.required, Validators.pattern("^((\\+1-?)|0)?[0-9]{10}$")]),
-    password: new FormControl('', Validators.required),
-    confirmPassword: new FormControl('', Validators.required),
-});
+   public errorMessage =service: any;
+   showValidationError!: boolean;
+validationError: any;
+   service: any;
+ ‘’;
+   
+   constructor(private errorNotificationService:
+      ErrorNotificationService) { }
 
-onSubmit() {
- // TODO: Use EventEmitter with form value
-  console.warn(this.exp.value);
-}
+   public submitForm()
+{
+   this.service.sendForm()
+   .pipe(catchError((e: HttpErrorResponse)=>{
+      if (e.status === 422){
+         this.showValidationError = true;
+         this.validationError = e.error.error;
+         return of(null);
+      }
+      // TODO: Catch other errors: cf. next section
+   }))
+   .subscribe(/* TODO: Handle success */);
 }
 
+   ngOnInit() {
+      this.errorNotificationService.notification.subscribe({
+         next: (notification) => {
+               this.errorMessage = notification;
+         },
+      });
+   }
+ 
+}
+
+
+function catchError(arg0: (e: any) => any): any {
+   throw new Error('Function not implemented.');
+}
+
+function of(arg0: null) {
+   throw new Error('Function not implemented.');
+}
 
