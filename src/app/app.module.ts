@@ -7,7 +7,6 @@ import { RegistrationModule } from './registration/registration.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ExpComponent } from './exp/exp.component';
 import { ExpModule } from './exp/exp.module';
 
 @NgModule({
