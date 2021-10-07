@@ -2,13 +2,13 @@ import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators, FormArray, ValidatorFn } from '@angular/forms';
 
 @Component({
-  selector: 'app-registration',
-  templateUrl: './registration.component.html',
-  styleUrls: ['./registration.component.scss']
+  selector: 'app-exp',
+  templateUrl: './exp.component.html',
+  styleUrls: ['./exp.component.scss']
 })
-export class RegistrationComponent {
+export class ExpComponent {
   
-  registration = new FormGroup({
+  exp = new FormGroup({
     firstName: new FormControl('', [Validators.required, Validators.maxLength(100), Validators.minLength(2), Validators.pattern(`^(?=.{2,100}$)[a-zA-Z]+(?:['_.\\s][a-zA-Z]+)*$`)]),
     lastName: new FormControl('', [Validators.pattern(`^[a-zA-Z]+$`), Validators.maxLength(100)]),
     email: new FormControl('', Validators.required),
@@ -19,7 +19,7 @@ export class RegistrationComponent {
 
 onSubmit() {
  // TODO: Use EventEmitter with form value
-  console.warn(this.registration.value);
+  console.warn(this.exp.value);
 }
 }
 

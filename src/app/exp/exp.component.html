@@ -10,9 +10,9 @@
                         <div class="col-md-8">
                             <div class="mb-4">
 
-                                <h3>Registration</h3>
+                                <h3>Exp</h3>
                             </div>
-                            <form [formGroup]="registration" (ngSubmit)="onSubmit()" action="#" method="post">
+                            <form [formGroup]="exp" (ngSubmit)="onSubmit()" action="#" method="post">
 
                                 <div class="form-group first">
                                     <label for="first-name">First Name: </label>
@@ -45,9 +45,9 @@
                                 </div>
 
                                 <div class="form-submit">
-                                    <button type="submit" [disabled]="!registration.valid"
+                                    <button type="submit" [disabled]="!exp.valid"
                                         class="btn btn-block btn-primary">Submit</button>
-                                        <button type="reset" [disabled]="!registration.valid"
+                                        <button type="reset" [disabled]="!exp.valid"
                                         class="btn btn-block btn-primary">Reset</button>
                                 </div>
                                 

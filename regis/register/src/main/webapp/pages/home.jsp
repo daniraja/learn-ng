@@ -8,15 +8,15 @@
 </head>
 <body>
 	<form action="addRegis">
-	<input type="text" name= "firstname"><br>
-	<input type="text" name= "lastname"><br>
-	<input type="text" name= "email"><br>
-	<input type="text" name= "phone"><br>
+	<input type="text" name= "firstname">First Name<br>
+	<input type="text" name= "lastname">Last Name<br>
+	<input type="text" name= "email">Email<br>
+	<input type="text" name= "phone">Phone<br>
 	<input type="submit"></form>
 	
 
 	<form action="getRegis">
-	<input type="text" name= "id"><br>
+	<input type="text" name= "id">Id<br>
 	<input type="submit"></form>
 </body>
 </html>
