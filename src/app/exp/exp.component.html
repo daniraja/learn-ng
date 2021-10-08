@@ -8,14 +8,17 @@
                 <div class="col-md-6 contents">
                     <div class="row justify-content-center">
                         <div class="col-md-8">
-                            <form>
-                                <input [class.error]=”isValidationError”/>
-                                <p class="errorText" *ngIf=isValidationError>
-                                   {{validationError}}
-                                </p>
-                                <button (click)="submitForm()">Submit</button>
-                             </form> 
-                             
+                            <ng-container *ngIf="!loading && !showError">
+                                <div class="mt-3" [formGroup]="updateForm">
+                                    <div class="form-group">
+                                        <label>Name<sup class="text-danger ml-1">*</sup></label>
+                                        <input type="text" class="form-control" placeholder="Name" formControlName="name">
+                                      </div>
+                                </div>
+                                
+                            </ng-container>
+                            
+                            
                         </div>
                     </div>
                 </div>
