@@ -7,7 +7,6 @@ import { RegistrationModule } from './registration/registration.module';
 
 import { ReactiveFormsModule } from '@angular/forms';
 import { NgbModule } from '@ng-bootstrap/ng-bootstrap';
-import { ExpModule } from './exp/exp.module';
 
 @NgModule({
   declarations: [
@@ -18,7 +17,6 @@ import { ExpModule } from './exp/exp.module';
     AppRoutingModule,
     ReactiveFormsModule,
     RegistrationModule,
-    ExpModule,
     NgbModule
   ],
   providers: [],

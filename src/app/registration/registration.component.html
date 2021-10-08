@@ -17,31 +17,70 @@
                                 <div class="form-group first">
                                     <label for="first-name">First Name: </label>
                                     <input id="first-name" type="text" formControlName="firstName" class="form-control">
+                                    <div *ngIf="registration.get('firstName').invalid && (registration.get('firstName').dirty || registration.get('firstName').touched)" class="alert">
+
+                                        <div *ngIf="registration.get('firstName').errors?.required">
+                                          Name is required.
+                                        </div>
+                                        <div *ngIf="registration.get('firstName').errors?.minlength">
+                                          Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="last-name">Last Name: </label>
                                     <input id="last-name" type="text" formControlName="lastName" class="form-control">
+                                    <div *ngIf="registration.get('lastName').invalid && (registration.get('lastName').dirty || registration.get('lastName').touched)" class="alert">
+
+                                        <div *ngIf="registration.get('lastName').errors?.required">
+                                          Name is required.
+                                        </div>
+                                        <div *ngIf="registration.get('lastName').errors?.minlength">
+                                          Name must be at least 4 characters long.
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="email">Email: </label>
                                     <input id="email" type="text" formControlName="email" class="form-control">
+                                    <div *ngIf="registration.get('email').invalid && (registration.get('email').dirty || registration.get('email').touched)" class="alert">
+
+                                        <div *ngIf="registration.get('email').errors?.required">
+                                          Enter Valid Email.
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="phone">Phone: </label>
                                     <input id="phone" type="text" formControlName="phone" class="form-control">
+                                    <div *ngIf="registration.get('phone').invalid && (registration.get('phone').dirty || registration.get('phone').touched)" class="alert">
+                                        <div *ngIf="registration.get('phone').errors?.required">
+                                          Enter Valid Phone Number.
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group">
                                     <label for="password">Password: </label>
                                     <input id="password" type="text" formControlName="password" class="form-control">
+                                    <div *ngIf="registration.get('password').invalid && (registration.get('password').dirty || registration.get('password').touched)" class="alert">
+                                        <div *ngIf="registration.get('password').errors?.required">
+                                          Enter Valid Password.
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-group last mb-4">
                                     <label for="confirmPassword"> Confirm Password: </label>
                                     <input id="confirmPassword" type="text" formControlName="confirmPassword" class="form-control">
+                                    <div *ngIf="registration.get('confirmPassword').invalid && (registration.get('confirmPassword').dirty || registration.get('confirmPassword').touched)" class="alert">
+                                        <div *ngIf="registration.get('confirmPassword').errors?.required">
+                                          Password Doesn't Match.
+                                        </div>
+                                    </div>
                                 </div>
 
                                 <div class="form-submit">
