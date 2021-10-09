@@ -1,6 +1,5 @@
 import { Component, OnInit } from '@angular/core';
 import { FormGroup, FormControl, Validators } from '@angular/forms';
-//import { MustMatch } from './must-match.validator';
 import { RegistrationService } from './registration.service';
 
 @Component({
@@ -10,6 +9,7 @@ import { RegistrationService } from './registration.service';
 })
 export class RegistrationComponent implements OnInit {
   registration:any;
+  passmsg: string | undefined; 
 
   constructor(private registrationService: RegistrationService){
 
@@ -22,12 +22,23 @@ ngOnInit(){
     email: new FormControl('', [Validators.required, Validators.pattern(`^[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,4}$`)]),
     phone: new FormControl('', [Validators.required, Validators.pattern(`^((\\+1-?)|0)?[0-9]{10}$`)]),
     password: new FormControl('', [Validators.required, Validators.pattern(`/^(?=.*[0-9])(?=.*[!@#$%^&*])[a-zA-Z0-9!@#$%^&*]{7,15}$/`)]),
-    confirmPassword: new FormControl('', Validators.required),
-    
-      //validator: MustMatch('password', 'confirmPassword')
+    confirmPassword: new FormControl('', [Validators.required]),
     
 });
 }
+
+checkPassSame() {
+  let pass = this.registration.value.password;
+  let passConf = this.registration.value.confirmPassword;
+  if(pass == passConf && this.registration.valid === true) {
+    this.passmsg = "";
+    return false;
+  }else {
+    this.passmsg = "Password did not match.";
+    return true;
+  }
+}
+
 onSubmit() {
  // TODO: Use EventEmitter with form value
   console.warn(this.registration.value);

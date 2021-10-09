@@ -95,6 +95,9 @@
                                         <div *ngIf="registration.get('confirmPassword').errors?.required">
                                           Password Doesn't Match.
                                         </div>
+                                        <div *ngIf="passmsg != '' && !registration.controls?.confPass?.errors?.required">
+                                            <p class="errorMsg">*{{passmsg}}</p>
+                                          </div>  
                                     </div>
                                 </div>
 
