@@ -20,11 +20,14 @@
                                     <div *ngIf="registration.get('firstName').invalid && (registration.get('firstName').dirty || registration.get('firstName').touched)" class="alert">
 
                                         <div *ngIf="registration.get('firstName').errors?.required">
-                                          Name is required.
+                                          First Name is required.
                                         </div>
                                         <div *ngIf="registration.get('firstName').errors?.minlength">
-                                          Name must be at least 4 characters long.
+                                            First Name must be at least 4 characters long.
                                         </div>
+                                        <div *ngIf="registration.get('firstName').errors?.pattern">
+                                            First Name must have only alphabets.
+                                          </div>
                                     </div>
                                 </div>
 
@@ -34,11 +37,14 @@
                                     <div *ngIf="registration.get('lastName').invalid && (registration.get('lastName').dirty || registration.get('lastName').touched)" class="alert">
 
                                         <div *ngIf="registration.get('lastName').errors?.required">
-                                          Name is required.
+                                            Last Name is required.
                                         </div>
                                         <div *ngIf="registration.get('lastName').errors?.minlength">
-                                          Name must be at least 4 characters long.
+                                            Last Name must be at least 4 characters long.
                                         </div>
+                                        <div *ngIf="registration.get('lastName').errors?.pattern">
+                                            Last Name must have only alphabets.
+                                          </div>
                                     </div>
                                 </div>
 
@@ -50,6 +56,9 @@
                                         <div *ngIf="registration.get('email').errors?.required">
                                           Enter Valid Email.
                                         </div>
+                                        <div *ngIf="registration.get('email').errors?.pattern">
+                                            Enter Valid Email Address(abc@examplemail.com).
+                                          </div>
                                     </div>
                                 </div>
 
@@ -60,6 +69,9 @@
                                         <div *ngIf="registration.get('phone').errors?.required">
                                           Enter Valid Phone Number.
                                         </div>
+                                        <div *ngIf="registration.get('phone').errors?.pattern">
+                                            Enter Valid Phone Number(use +1 999 999 9999).
+                                          </div>
                                     </div>
                                 </div>
 
@@ -70,6 +82,9 @@
                                         <div *ngIf="registration.get('password').errors?.required">
                                           Enter Valid Password.
                                         </div>
+                                        <div *ngIf="registration.get('password').errors?.pattern">
+                                            Please enter special characters, upper case, lower case and a number.
+                                          </div>
                                     </div>
                                 </div>
 
