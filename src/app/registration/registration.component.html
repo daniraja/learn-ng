@@ -96,10 +96,8 @@
                                           Password Doesn't Match.
                                         </div>
                                         <div *ngIf="passmsg != '' && !registration.controls?.confPass?.errors?.required">
-                                            <p class="errorMsg">*{{passmsg}}</p>
+                                            <!-- <p class="errorMsg">*{{passmsg}}</p> -->
                                           </div>  
-                                          <mat-error *ngIf="form.hasError('passwordsNotEqual')" >Passwords are different. They should be equal!</mat-error>
-            </mat-form-field>
                                     </div>
                                 </div>
 
