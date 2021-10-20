@@ -1,120 +1,133 @@
 <body>
-    <div class="content">
-        <div class="container">
-            <div class="row">
-                <div class="col-md-6">
-                    <img src="images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
-                </div>
-                <div class="col-md-6 contents">
-                    <div class="row justify-content-center">
-                        <div class="col-md-8">
-                            <div class="mb-4">
-
-                                <h3>Registration</h3>
-                            </div>
-                            <form [formGroup]="registration" (ngSubmit)="onSubmit()" action="#" method="post">
-
-                                <div class="form-group first">
-                                    <label for="first-name">First Name: </label>
-                                    <input id="first-name" type="text" formControlName="firstName" class="form-control">
-                                    <div *ngIf="registration.get('firstName').invalid && (registration.get('firstName').dirty || registration.get('firstName').touched)" class="alert">
-
-                                        <div *ngIf="registration.get('firstName').errors?.required">
-                                          First Name is required.
-                                        </div>
-                                        <div *ngIf="registration.get('firstName').errors?.minlength">
-                                            First Name must be at least 4 characters long.
-                                        </div>
-                                        <div *ngIf="registration.get('firstName').errors?.pattern">
-                                            First Name must have only alphabets.
-                                          </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="last-name">Last Name: </label>
-                                    <input id="last-name" type="text" formControlName="lastName" class="form-control">
-                                    <div *ngIf="registration.get('lastName').invalid && (registration.get('lastName').dirty || registration.get('lastName').touched)" class="alert">
-
-                                        <div *ngIf="registration.get('lastName').errors?.required">
-                                            Last Name is required.
-                                        </div>
-                                        <div *ngIf="registration.get('lastName').errors?.minlength">
-                                            Last Name must be at least 4 characters long.
-                                        </div>
-                                        <div *ngIf="registration.get('lastName').errors?.pattern">
-                                            Last Name must have only alphabets.
-                                          </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="email">Email: </label>
-                                    <input id="email" type="text" formControlName="email" class="form-control">
-                                    <div *ngIf="registration.get('email').invalid && (registration.get('email').dirty || registration.get('email').touched)" class="alert">
-
-                                        <div *ngIf="registration.get('email').errors?.required">
-                                          Enter Valid Email.
-                                        </div>
-                                        <div *ngIf="registration.get('email').errors?.pattern">
-                                            Enter Valid Email Address(abc@examplemail.com).
-                                          </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="phone">Phone: </label>
-                                    <input id="phone" type="text" formControlName="phone" class="form-control">
-                                    <div *ngIf="registration.get('phone').invalid && (registration.get('phone').dirty || registration.get('phone').touched)" class="alert">
-                                        <div *ngIf="registration.get('phone').errors?.required">
-                                          Enter Valid Phone Number.
-                                        </div>
-                                        <div *ngIf="registration.get('phone').errors?.pattern">
-                                            Enter Valid Phone Number(use +1 999 999 9999).
-                                          </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
-                                    <label for="password">Password: </label>
-                                    <input id="password" type="text" formControlName="password" class="form-control">
-                                    <div *ngIf="registration.get('password').invalid && (registration.get('password').dirty || registration.get('password').touched)" class="alert">
-                                        <div *ngIf="registration.get('password').errors?.required">
-                                          Enter Valid Password.
-                                        </div>
-                                        <div *ngIf="registration.get('password').errors?.pattern">
-                                            Please enter special characters, upper case, lower case and a number.
-                                          </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group last mb-4">
-                                    <label for="confirmPassword"> Confirm Password: </label>
-                                    <input id="confirmPassword" type="text" formControlName="confirmPassword" class="form-control">
-                                    <div *ngIf="registration.get('confirmPassword').invalid && (registration.get('confirmPassword').dirty || registration.get('confirmPassword').touched)" class="alert">
-                                        <div *ngIf="registration.get('confirmPassword').errors?.required">
-                                          Password Doesn't Match.
-                                        </div>
-                                        <div *ngIf="passmsg != '' && !registration.controls?.confPass?.errors?.required">
-                                            <!-- <p class="errorMsg">*{{passmsg}}</p> -->
-                                          </div>  
-                                    </div>
-                                </div>
-
-                                <div class="form-submit">
-                                    <button type="submit" [disabled]="!registration.valid"
-                                        class="btn btn-block btn-primary">Submit</button>
-                                        <button type="reset" [disabled]="!registration.valid"
-                                        class="btn btn-block btn-primary">Reset</button>
-                                </div>
-                                
-                            </form>
-                        </div>
-                    </div>
-                </div>
-            </div>
+  <div class="content">
+    <div class="container">
+      <div class="row">
+        <div class="col-md-6">
+          <img src="images/undraw_remotely_2j6y.svg" alt="Image" class="img-fluid">
         </div>
+        <div class="col-md-6 contents">
+          <div class="row justify-content-center">
+            <div class="col-md-8">
+              <div class="mb-4">
+
+                <h3>Registration</h3>
+              </div>
+              <form [formGroup]="registration" (ngSubmit)="onSubmit()" action="#" method="post">
+
+                <div class="form-group first">
+                  <label for="first-name">First Name: </label>
+                  <input id="first-name" type="text" formControlName="firstName" class="form-control">
+                  <div
+                    *ngIf="registration.get('firstName').invalid && (registration.get('firstName').dirty || registration.get('firstName').touched)"
+                    class="alert">
+
+                    <div *ngIf="registration.get('firstName').errors?.required">
+                      First Name is required.
+                    </div>
+                    <div *ngIf="registration.get('firstName').errors?.minlength">
+                      First Name must be at least 4 characters long.
+                    </div>
+                    <div *ngIf="registration.get('firstName').errors?.pattern">
+                      First Name must have only alphabets.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="last-name">Last Name: </label>
+                  <input id="last-name" type="text" formControlName="lastName" class="form-control">
+                  <div
+                    *ngIf="registration.get('lastName').invalid && (registration.get('lastName').dirty || registration.get('lastName').touched)"
+                    class="alert">
+
+                    <div *ngIf="registration.get('lastName').errors?.required">
+                      Last Name is required.
+                    </div>
+                    <div *ngIf="registration.get('lastName').errors?.minlength">
+                      Last Name must be at least 4 characters long.
+                    </div>
+                    <div *ngIf="registration.get('lastName').errors?.pattern">
+                      Last Name must have only alphabets.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="email">Email: </label>
+                  <input id="email" type="text" formControlName="email" class="form-control">
+                  <div
+                    *ngIf="registration.get('email').invalid && (registration.get('email').dirty || registration.get('email').touched)"
+                    class="alert">
+
+                    <div *ngIf="registration.get('email').errors?.required">
+                      Enter Valid Email.
+                    </div>
+                    <div *ngIf="registration.get('email').errors?.pattern">
+                      Enter Valid Email Address(abc@examplemail.com).
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="phone">Phone: </label>
+                  <input id="phone" type="text" formControlName="phone" class="form-control">
+                  <div
+                    *ngIf="registration.get('phone').invalid && (registration.get('phone').dirty || registration.get('phone').touched)"
+                    class="alert">
+                    <div *ngIf="registration.get('phone').errors?.required">
+                      Enter Valid Phone Number.
+                    </div>
+                    <div *ngIf="registration.get('phone').errors?.pattern">
+                      Enter Valid Phone Number(use +1 999 999 9999).
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group">
+                  <label for="password">Password: </label>
+                  <input id="password" type="text" formControlName="password" class="form-control">
+                  <div
+                    *ngIf="registration.get('password').invalid && (registration.get('password').dirty || registration.get('password').touched)"
+                    class="alert">
+                    <div *ngIf="registration.get('password').errors?.required">
+                      Enter Valid Password.
+                    </div>
+                    <div *ngIf="registration.get('password').errors?.pattern">
+                      Please enter special characters, upper case, lower case and a number.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-group last mb-4">
+                  <label for="confirmPassword"> Confirm Password: </label>
+                  <input id="confirmPassword" type="text" formControlName="confirmPassword" class="form-control">
+                  
+                  <div *ngIf="registration.hasError('notSame')">
+                    Passwords do not match!
+                  </div>
+
+                  <div
+                    *ngIf="registration.get('confirmPassword').invalid && (registration.get('confirmPassword').dirty || registration.get('confirmPassword').touched)"
+                    class="alert">
+                    <div *ngIf="registration.get('confirmPassword').errors?.required">
+                      Confirm Password is required.
+                    </div>
+                  </div>
+                </div>
+
+                <div class="form-submit">
+                  <button type="submit" [disabled]="!registration.valid"
+                    class="btn btn-block btn-primary">Submit</button>
+                  <button type="reset" [disabled]="!registration.valid" class="btn btn-block btn-primary">Reset</button>
+                </div>
+
+              </form>
+            </div>
+          </div>
+        </div>
+      </div>
     </div>
+  </div>
 
 
 </body>
