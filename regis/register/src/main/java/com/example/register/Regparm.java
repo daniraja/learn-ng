@@ -28,8 +28,15 @@ public class Regparm implements Serializable{
 	    private String email;
 	@Column(name = "phone")
 	    private String phone;
-	
+	@Column(name = "password")
+    private String password;
 		
+		public String getPassword() {
+		return password;
+	}
+	public void setPassword(String password) {
+		this.password = password;
+	}
 		public int getId() {
 			return id;
 		}

@@ -29,6 +29,7 @@ public class HomeController {
 	
 	@RequestMapping("/addRegis")
 	public String addRegparm(Regparm regis) {
+		System.out.println(regis);
 		repo.save(regis);
 		return "home";
 	}
@@ -45,7 +46,9 @@ public class HomeController {
 				regparm.setFirstname((String) objlist[1]);
 				regparm.setLastname((String) objlist[2]);
 				regparm.setEmail((String) objlist[3]);
-				regparm.setPhone((String) objlist[3]);
+				regparm.setPhone((String) objlist[4]);
+				regparm.setPassword((String) objlist[5]);
+				
 			});
 			return regparm1;
 		}
