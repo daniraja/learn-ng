@@ -68,6 +68,8 @@ export class RegistrationComponent implements OnInit {
   }
 }
 
+
+
 function checkPassword(): ValidatorFn {
   return (group: AbstractControl): ValidationErrors | null => {
     return group.get('password')?.value === group.get('confirmPassword')?.value
