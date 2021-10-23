@@ -80,20 +80,23 @@
 
                                 <div class="form-group">
                                     <label for="password">Password: </label>
-                                    <input id="password" type="text" formControlName="password" class="form-control">
+                                    <input id="password" type="password" formControlName="password" class="form-control">
                                     <div *ngIf="registration.get('password').invalid && (registration.get('password').dirty || registration.get('password').touched)" class="alert">
                                         <div *ngIf="registration.get('password').errors?.required">
                                           Enter Valid Password.
                                         </div>
-                                        <div *ngIf="registration.get('password').errors?.pattern">
-                                            Please enter special characters, upper case, lower case and a number.
+                                        <div *ngIf="registration.get('password').errors?.minlength">
+                                            Enter minimum 4 characters as Password.
                                           </div>
+                                        <!-- <div *ngIf="registration.get('password').errors?.pattern">
+                                            Please enter special characters, upper case, lower case and a number.
+                                          </div> -->
                                     </div>
                                 </div>
 
                                 <div class="form-group last mb-4">
                                     <label for="confirmPassword"> Confirm Password: </label>
-                                    <input id="confirmPassword" type="text" formControlName="confirmPassword" class="form-control">
+                                    <input id="confirmPassword" type="password" formControlName="confirmPassword" class="form-control">
                                     <div *ngIf="registration.get('confirmPassword').invalid && (registration.get('confirmPassword').dirty || registration.get('confirmPassword').touched)" class="alert">
                                         <div *ngIf="registration.get('confirmPassword').errors?.required">
                                           Password Doesn't Match.
