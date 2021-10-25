@@ -67,7 +67,7 @@
 
                                 <div class="form-group">
                                     <label for="phone">Phone: </label>
-                                    <input id="phone" type="text" formControlName="phone" class="form-control">
+                                    <input id="phone" type="text" formControlName="phone" class="form-control">(+1 xxxxxxxxxx)
                                     <div *ngIf="registration.get('phone').invalid && (registration.get('phone').dirty || registration.get('phone').touched)" class="alert">
                                         <div *ngIf="registration.get('phone').errors?.required">
                                           Enter Valid Phone Number.
