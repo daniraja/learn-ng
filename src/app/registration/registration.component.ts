@@ -9,6 +9,15 @@ import {
 } from '@angular/forms';
 import { RegistrationService } from './registration.service';
 
+
+class ImageSnippet {
+  pending: boolean = false;
+  status: string = 'init';
+
+  constructor(public src: string, public file: File) {}
+}
+
+
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -18,7 +27,45 @@ export class RegistrationComponent implements OnInit {
   registration: any;
   passmsg: string | undefined;
 
+  selectedFile!: ImageSnippet;
+
   constructor(private registrationService: RegistrationService) {}
+
+
+  private onSuccess() {
+    this.selectedFile.pending = false;
+    this.selectedFile.status = 'ok';
+  }
+
+  private onError() {
+    this.selectedFile.pending = false;
+    this.selectedFile.status = 'fail';
+    this.selectedFile.src = '';
+  }
+
+  processFile(imageInput: any) {
+    const file: File = imageInput.files[0];
+    const reader = new FileReader();
+
+    reader.addEventListener('load', (event: any) => {
+
+      this.selectedFile = new ImageSnippet(event.target.result, file);
+
+      this.selectedFile.pending = true;
+      this.registrationService.uploadImage(this.selectedFile.file).subscribe(
+        (res) => {
+          this.onSuccess();
+        },
+        (err) => {
+          this.onError();
+        })
+    });
+
+    reader.readAsDataURL(file);
+  }
+
+
+
 
   ngOnInit() {
     this.registration = new FormGroup(
@@ -42,7 +89,13 @@ export class RegistrationComponent implements OnInit {
         phone: new FormControl('', [
           Validators.required,
           Validators.pattern(`^((\\+1-?)|0)?[0-9]{10}$`),
+          
         ]),
+        
+         dob: new FormControl('', [
+          Validators.required, 
+          Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]),
+ 
         password: new FormControl(null, [
           Validators.required,
           Validators.maxLength(100),

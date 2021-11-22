@@ -16,6 +16,6 @@ import com.example.register.Regparm;
 public interface Regrepo extends JpaRepository<Regparm, Integer>
 
 {
-	@Query("SELECT " + " id, firstname, lastname, email, phone" +" FROM Regparm " )
+	@Query("SELECT " + " id, firstname, lastname, email, dob, phone, pic_id, pic_name, pic_data, pic_type" +" FROM Regparm " )
 	List<Object[]> getRepo();
 }
