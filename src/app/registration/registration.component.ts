@@ -9,7 +9,6 @@ import {
 } from '@angular/forms';
 import { RegistrationService } from './registration.service';
 
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
@@ -20,7 +19,6 @@ export class RegistrationComponent implements OnInit {
   passmsg: string | undefined;
 
   constructor(private registrationService: RegistrationService) {}
-
 
   ngOnInit() {
     this.registration = new FormGroup(
@@ -44,13 +42,7 @@ export class RegistrationComponent implements OnInit {
         phone: new FormControl('', [
           Validators.required,
           Validators.pattern(`^((\\+1-?)|0)?[0-9]{10}$`),
-          
         ]),
-        
-         dob: new FormControl('', [
-          Validators.required, 
-          Validators.pattern(/^\d{4}\-(0[1-9]|1[012])\-(0[1-9]|[12][0-9]|3[01])$/)]),
- 
         password: new FormControl(null, [
           Validators.required,
           Validators.maxLength(100),

@@ -79,19 +79,6 @@
                                 </div>
 
                                 <div class="form-group">
-                                    <label for="dob">Date Of Birth: </label>
-                                    <input id="dob" type="date" formControlName="dob" class="form-control">(xxxx/xx/xx)
-                                    <div *ngIf="registration.get('dob').invalid && (registration.get('dob').dirty || registration.get('dob').touched)" class="alert">
-                                        <div *ngIf="registration.get('dob').errors?.required">
-                                          Enter Valid Date Of Birth.
-                                        </div>
-                                        <div *ngIf="registration.get('dob').errors?.pattern">
-                                            Enter Valid Date Of Birth..
-                                          </div>
-                                    </div>
-                                </div>
-
-                                <div class="form-group">
                                     <label for="password">Password: </label>
                                     <input id="password" type="password" formControlName="password" class="form-control">
                                     <div *ngIf="registration.get('password').invalid && (registration.get('password').dirty || registration.get('password').touched)" class="alert">
@@ -109,21 +96,17 @@
 
                                 <div class="form-group last mb-4">
                                     <label for="confirmPassword"> Confirm Password: </label>
-                                    <input id="confirmPassword" type="text" formControlName="confirmPassword" class="form-control">
-                                    
-                                    <div *ngIf="registration.hasError('notSame')">
-                                      Passwords do not match!
-                                    </div>
-                  
-                                    <div
-                                      *ngIf="registration.get('confirmPassword').invalid && (registration.get('confirmPassword').dirty || registration.get('confirmPassword').touched)"
-                                      class="alert">
-                                      <div *ngIf="registration.get('confirmPassword').errors?.required">
-                                        Confirm Password is required.
-                                      </div>
+                                    <input id="confirmPassword" type="password" formControlName="confirmPassword" class="form-control">
+                                    <div *ngIf="registration.get('confirmPassword').invalid && (registration.get('confirmPassword').dirty || registration.get('confirmPassword').touched)" class="alert">
+                                        <div *ngIf="registration.get('confirmPassword').errors?.required">
+                                          Password Doesn't Match.
+                                        </div>
+                                        <div *ngIf="passmsg != '' && !registration.controls?.confPass?.errors?.required">
+                                            <!-- <p class="errorMsg">*{{passmsg}}</p> -->
+                                          </div>  
                                     </div>
                                 </div>
-                                
+
                                 <div class="form-submit">
                                     <button type="submit" [disabled]="!registration.valid"
                                         class="btn btn-block btn-primary">Submit</button>

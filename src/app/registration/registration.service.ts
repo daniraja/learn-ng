@@ -1,6 +1,5 @@
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Observable } from 'rxjs/internal/Observable';
 
 @Injectable({
   providedIn: 'root'
@@ -13,5 +12,4 @@ url = 'http://localhost:8080/addRegis'
     return this.http.post(this.url, user).toPromise();
     
     }
-    
 }
