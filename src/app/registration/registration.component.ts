@@ -27,44 +27,7 @@ export class RegistrationComponent implements OnInit {
   registration: any;
   passmsg: string | undefined;
 
-  selectedFile!: ImageSnippet;
-
   constructor(private registrationService: RegistrationService) {}
-
-
-  private onSuccess() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'ok';
-  }
-
-  private onError() {
-    this.selectedFile.pending = false;
-    this.selectedFile.status = 'fail';
-    this.selectedFile.src = '';
-  }
-
-  processFile(imageInput: any) {
-    const file: File = imageInput.files[0];
-    const reader = new FileReader();
-
-    reader.addEventListener('load', (event: any) => {
-
-      this.selectedFile = new ImageSnippet(event.target.result, file);
-
-      this.selectedFile.pending = true;
-      this.registrationService.uploadImage(this.selectedFile.file).subscribe(
-        (res) => {
-          this.onSuccess();
-        },
-        (err) => {
-          this.onError();
-        })
-    });
-
-    reader.readAsDataURL(file);
-  }
-
-
 
 
   ngOnInit() {
