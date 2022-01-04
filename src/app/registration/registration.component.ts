@@ -10,14 +10,6 @@ import {
 import { RegistrationService } from './registration.service';
 
 
-class ImageSnippet {
-  pending: boolean = false;
-  status: string = 'init';
-
-  constructor(public src: string, public file: File) {}
-}
-
-
 @Component({
   selector: 'app-registration',
   templateUrl: './registration.component.html',
