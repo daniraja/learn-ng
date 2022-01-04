@@ -29,4 +29,9 @@ public class StorageService {
   public Stream<Regparm> getAllFiles() {
     return Regrepo.findAll().stream();
   }
+
+public com.example.register.repo.Regrepo getFile(String id) {
+	// TODO Auto-generated method stub
+	return null;
+}
 }

@@ -116,18 +116,18 @@ public class HomeController {
 	
 	@GetMapping("/files")
 	  public ResponseEntity<List<ResponseFile>> getListFiles() {
-	    List<ResponseFile> files = storageService.getAllFiles().map(dbFile -> {
+	    List<ResponseFile> files = storageService.getAllFiles().map(Regparm -> {
 	      String fileDownloadUri = ServletUriComponentsBuilder
 	          .fromCurrentContextPath()
 	          .path("/files/")
-	          .path(dbFile.getId())
+	          .path(Regparm.getPic_id())
 	          .toUriString();
 
 	      return new ResponseFile(
-	          dbFile.getName(),
+	    	  Regparm.getPic_name(),
 	          fileDownloadUri,
-	          dbFile.getType(),
-	          dbFile.getData().length);
+	          Regparm.getPic_type(),
+	          Regparm.getPic_data().length);
 	    }).collect(Collectors.toList());
 
 	    return ResponseEntity.status(HttpStatus.OK).body(files);
@@ -138,10 +138,10 @@ public class HomeController {
 	    Regrepo Regrepo = storageService.getFile(id);
 
 	    return ResponseEntity.ok()
-	        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + Regrepo.getName() + "\"")
-	        .body(Regrepo.getData());
+	        .header(HttpHeaders.CONTENT_DISPOSITION, "attachment; filename=\"" + Regparm.getPic_name() + "\"")
+	        .body(Regparm.getPic_data());
 	  }
 	}
 	
-}
+
 

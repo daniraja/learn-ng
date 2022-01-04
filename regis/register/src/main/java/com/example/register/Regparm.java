@@ -124,7 +124,14 @@ public class Regparm implements Serializable{
 					+ ", pic_name=" + pic_name + ", pic_type=" + pic_type + ", pic_data=" + Arrays.toString(pic_data)
 					+ "]";
 		}
+		public Regparm(String pic_name, String pic_type, byte[] pic_data) {
+			super();
+			this.pic_name = pic_name;
+			this.pic_type = pic_type;
+			this.pic_data = pic_data;
+		}
 		
+				
 			    
 		
 }
