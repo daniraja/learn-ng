@@ -16,7 +16,7 @@ public class Regparmdto {
 	}
 	
 	public Regparmdto(int id, String firstName, String lastName, String email, String phone,
-			String password, String dob) {
+			String password, String dob, String pic_id, String pic_name, String pic_data, String pic_type) {
 		super();
 		this.id = id;
 		this.firstName = firstName;

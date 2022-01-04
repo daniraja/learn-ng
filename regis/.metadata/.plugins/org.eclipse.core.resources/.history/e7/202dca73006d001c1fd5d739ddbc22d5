@@ -19,6 +19,7 @@ import com.example.register.Regparm;
 import com.example.register.dto.Regparmdto;
 
 import com.example.register.repo.Regrepo;
+import com.example.register.storage.StorageService;
 
 
 
@@ -26,7 +27,12 @@ import com.example.register.repo.Regrepo;
 public class HomeController {
 
 	
+	private final StorageService storageService;
 
+	@Autowired
+	public HomeController(StorageService storageService) {
+		this.storageService = storageService;
+	}
 	
 	
 	@Autowired
